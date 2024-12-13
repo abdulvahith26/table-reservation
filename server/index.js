@@ -53,6 +53,18 @@ app.use('/api/dashboard',dashboard)
 mongoose.connect(process.env.MONGODB_URL ,)
   .then(() => console.log('Connected to MongoDB'))
   .catch((error) => console.error('MongoDB connection error:', error));
+  
+  
+app.get('/', (req, res) => {
+  res.redirect('/api' );
+});
+app.get('/api/', (req, res) => {
+  res.json({
+      sucess: true ,
+       message : " Welcome to the API , connected to the DB" });
+  });
+
+
 
 // Socket.IO connection handling
 io.on('connection', (socket) => {
