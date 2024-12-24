@@ -8,7 +8,7 @@ const Home = () => {
     <div  
       className="min-h-screen flex items-center justify-center bg-gray-900 relative"  
       style={{  
-        backgroundImage: "url('/public/3692914.jpeg')",  
+        backgroundImage: "url('/3692914.jpeg')",  
         backgroundSize: "cover", // Ensure the image covers the screen  
         backgroundPosition: "center",  
         backgroundRepeat: "no-repeat",  
