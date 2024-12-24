@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import restaurantService from "../services/restaurantService";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const RestaurantListPage = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -88,6 +90,15 @@ const RestaurantListPage = () => {
 
   // Handle restaurant details navigation
   const handleViewDetails = (id) => {
+    const token = localStorage.getItem("userToken");
+    if (!token) {
+      toast.warning("Token required. Please log in.", {
+        onClose: () => navigate("/user-login"),
+        autoClose: 3000,
+        transition:"slide",
+      });
+      return;
+    }
     navigate(`/restaurants/${id}`);
   };
 
@@ -97,11 +108,13 @@ const RestaurantListPage = () => {
   }, [cuisineType, priceRange, rating, location, features]);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white mt-16">
+    <div className="min-h-screen bg-gray-900 text-white mt-10">
+          <ToastContainer position="top-center" theme="dark" autoClose={3000} hideProgressBar={false} />
+
       {/* Header */}
-      <div className="container mx-auto py-8 text-center">
+      <div className="container mx-auto py-3 text-center">
         <motion.h1
-          className="text-5xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600"
+          className="text-5xl font-extrabold  mt-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
@@ -111,7 +124,7 @@ const RestaurantListPage = () => {
       </div>
 
       {/* Search Bar */}
-      <div className="container mx-auto px-4 mb-8 flex justify-center">
+      <div className="container mx-auto px-4 mb-3 flex justify-center">
         <motion.div className="relative w-full sm:w-1/2 lg:w-1/3">
           <input
             type="text"
@@ -179,7 +192,7 @@ const RestaurantListPage = () => {
 
           <button
             onClick={handleFilterChange}
-            className="p-2 text-sm rounded-lg bg-blue-500 text-white hover:bg-blue-600 shadow-md focus:ring-2 focus:ring-blue-500 px-3"
+            className="p-2 text-sm rounded-lg bg-yellow-600 font-semibold text-black hover:bg-yellow-700 shadow-md focus:ring-2 focus:ring-yellow-600 px-3"
           >
             Apply Filters
           </button>
@@ -208,21 +221,21 @@ const RestaurantListPage = () => {
                 whileHover={{ scale: 1.05 }}
               >
                 <div
-                  className="h-52 bg-cover bg-center"
+                  className="h-56 bg-cover bg-center"
                   style={{
-                    backgroundImage: `url(${restaurant.images || "image not loading..."})`,
+                    backgroundImage:`url(${restaurant.images || "image not loading..."})`,
                   }}  
                 ></div>    
 
-                <div className="p-5 transition-all">
-                  <h2 className="text-3xl font-bold mb-2 text-white">
+                <div className="p-2 transition-all">
+                  <h2 className="text-2xl font-bold mb-2 text-white">
                     {restaurant.name}
                   </h2>
                   <div className="flex justify-between mb-2">
                     <p className="text-gray-300">
-                      Price Range:{" "}
+                      Start's From:<span className="text-green-400"> ₹</span> {" "}
                       <span className="font-semibold text-green-400">
-                        {restaurant.priceRange || "100-500"}
+                        {restaurant.priceRange || "N/A"}
                       </span>
                     </p>
                     <p className="text-gray-300">

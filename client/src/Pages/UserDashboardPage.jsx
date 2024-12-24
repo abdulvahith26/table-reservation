@@ -68,7 +68,7 @@ const UserDashboard = () => {
 
   if (loading) {
     return (
-      <p className="text-center font-bold text-xl text-gray-300 animate-pulse mt-80">
+      <p className="text-center font-bold text-xl bg-gray-950 text-gray-300 animate-pulse pt-80 h-screen">
         Loading...
       </p>
     );

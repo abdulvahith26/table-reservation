@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { FaTable, FaSearch, FaClipboard, FaUserAlt, FaSignOutAlt, FaBuilding } from "react-icons/fa"; // Different icons for the navbar
+import { FaTable,  FaUtensils,FaSearch, FaClipboard, FaUserAlt, FaSignOutAlt, FaBuilding } from "react-icons/fa"; // Different icons for the navbar
 import { motion } from "framer-motion"; // For animations
 
 const Navbar = () => {
@@ -21,8 +21,8 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 bg-gray-600 text-white shadow-lg z-50">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
-        <NavLink to="/" className="text-3xl font-bold text-yellow-300 hover:text-yellow-500 transition duration-300">
-          <FaTable className="inline-block mr-2" />
+        <NavLink to="/" className="text-3xl font-bold text-yellow-600 hover:text-yellow-700 transition duration-300">
+         < FaUtensils className="inline-block mr-2 text-blue-500" /> 
           TableMaster
         </NavLink>
 

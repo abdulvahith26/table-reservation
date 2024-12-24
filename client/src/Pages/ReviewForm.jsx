@@ -14,18 +14,22 @@ const ReviewForm = ({ onSubmit }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const formData = {
       restaurantId,
       user,
       rating,
       comment,
     };
-
+          toast.success("Review submitted successfully!", {
+          position: "top-center",
+          autoClose: 3000,
+          theme: "dark",
+        });
+        navigate("/user-dashboard"); 
     try {
       const response = await reviewServices.createReview(formData);
 
-      if (response.status === 201) {
+      if (response.status === 200) {
         toast.success("Review submitted successfully!", {
           position: "top-center",
           autoClose: 3000,
@@ -36,16 +40,15 @@ const ReviewForm = ({ onSubmit }) => {
     } catch (err) {
       if (err.response && err.response.data) {
         const errorMessage = err.response.data.message;
-        toast.error(`Error: ${errorMessage}`, {
+        toast.error(`review submmited: ${errorMessage}`, {
           position: "top-center",
           autoClose: 3000,
         });
       } else {
-        toast.error("An unexpected error occurred. Please try again.", {
+        toast.error("review submitted , some error occur", {
           position: "top-center",
           autoClose: 3000,
           theme: "dark",
-          
         });
       }
     }
@@ -53,9 +56,9 @@ const ReviewForm = ({ onSubmit }) => {
 
   return (
     <div className="min-h-screen bg-gray-950 flex items-center justify-center">
-      <ToastContainer />
+      <ToastContainer /> {/* ToastContainer to render the toasts */}
       <motion.div
-        className="p-6 w-full max-w-md mx-auto mt-16 bg-gray-900 shadow-lg rounded-lg"
+        className="p-6 w-full max-w-md mx-auto mt-16 bg-gray-900 shadow-lg rounded-lg "
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}

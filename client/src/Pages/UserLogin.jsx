@@ -30,14 +30,14 @@ const LoginPage = () => {
 
   return (
     <div className="h-screen flex items-center justify-center bg-gray-950">
-      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} closeOnClick pauseOnHover draggable />
+      <ToastContainer position="top-center" theme='dark' autoClose={3000} hideProgressBar={false} closeOnClick pauseOnHover draggable />
       <motion.div
-        className="p-8 bg-gray-800 rounded-lg shadow-lg w-full max-w-md"
+        className="p-8 bg-gray-900 rounded-lg shadow-lg w-full max-w-md"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-3xl font-bold text-center text-gray-500 mb-6">
+        <h2 className="text-3xl font-bold text-center text-gray-300 mb-6">
           User Login
         </h2>
         <form onSubmit={handleLogin} className="flex flex-col gap-4">
@@ -46,7 +46,7 @@ const LoginPage = () => {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-3 rounded-lg bg-gray-600 text-gray-500 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            className="w-full p-3 rounded-lg bg-gray-700 text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400"
             required
           />
           <input
@@ -54,7 +54,7 @@ const LoginPage = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-3 rounded-lg bg-gray-600 text-gray-500 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            className="w-full p-3 rounded-lg bg-gray-700 text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400"
             required
           />
           <motion.button
@@ -64,7 +64,7 @@ const LoginPage = () => {
             whileHover={!loading ? { scale: 1.05, boxShadow: "0px 0px 8px rgba(255, 223, 0, 0.8)" } : {}}
             whileTap={!loading ? { scale: 0.95 } : {}}
           >
-            {loading ? 'Logging...' : 'Login'}
+            {loading ? 'Logging in...' : 'Login'}
           </motion.button>
         </form>
       </motion.div>

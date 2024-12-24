@@ -126,28 +126,29 @@ const RestaurantDetailsPage = () => {
             </motion.div>
 
             <div className="lg:w-3/4">
-              <p className="text-2xl text-gray-400 italic mb-4">
+              <p className="text-lg text-gray-300 mb-2">
                 <strong>Cuisine: </strong>
                 {restaurant.cuisine}
               </p>
-              <p className="text-lg text-gray-300 mb-6">
+              <p className="text-lg text-gray-300 mb-2">
                 <strong>Description: </strong>
                 {restaurant.description}
               </p>
 
-              <div className="flex items-center mb-6">
-                <FaStar className="text-yellow-400 text-2xl" />
-                <span className="ml-2 text-xl font-semibold">
-                  {restaurant.rating}
+              <div className="flex items-center mb-2">
+              <strong>Rating's:  </strong> 
+                <FaStar className="text-yellow-400 text-xl ml-2"/>
+                <span className="ml-2 text-xl font-semibold ">
+                     {restaurant.rating}
                 </span>
               </div>
 
-              <p className="text-lg text-gray-300 mb-6">
+              <p className="text-lg text-gray-300 mb-2">
                 <strong>Price Range: </strong>₹{restaurant.priceRange}
               </p>
 
               {restaurant.features.length > 0 && (
-                <div className="mb-6">
+                <div className="mb-2">
                   <strong>Features: </strong>
                   <ul className="list-disc pl-5 text-gray-300">
                     {restaurant.features.map((feature, index) => (
@@ -159,7 +160,7 @@ const RestaurantDetailsPage = () => {
                 </div>
               )}
 
-              <div className="mb-6">
+              <div className="mb-2">
                 <strong>Location: </strong>
                 <p className="text-gray-300">{restaurant.location}</p>
               </div>
@@ -169,7 +170,7 @@ const RestaurantDetailsPage = () => {
                   <h2 className="text-2xl font-bold ">Reviews</h2>
                   <Link
                     to={`/restaurants/review/${id}`}
-                    className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200 relative left-64"
+                    className="bg-yellow-600 text-white py-2 px-4 rounded-lg hover:bg-yellow-700 transition duration-200 relative left-64"
                   >
                     Add Review
                   </Link>
