@@ -67,6 +67,15 @@ const LoginPage = () => {
             {loading ? 'Logging in...' : 'Login'}
           </motion.button>
         </form>
+        <p className="mt-4 text-center text-gray-400 text-sm">
+          Don't have an account?{" "}
+          <span
+            className="text-yellow-500 cursor-pointer hover:underline"
+            onClick={() => navigate("/user-register")}
+          >
+            Register
+          </span>
+        </p>
       </motion.div>
     </div>
   );

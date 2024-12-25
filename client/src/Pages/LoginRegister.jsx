@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const RegisterPage = () => {
+const LoginRegister = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-    role: "admin",
+    role: "user",
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -93,8 +93,8 @@ const RegisterPage = () => {
               className="w-full px-4 py-2 rounded-lg bg-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500"
             />
           </div>
-{/* 
-          <div className="mb-6">
+
+          {/* <div className="mb-6">
             <label htmlFor="role" className="block text-gray-300 mb-2">
               Register As
             </label>
@@ -123,7 +123,7 @@ const RegisterPage = () => {
           Already have an account?{" "}
           <span
             className="text-yellow-500 cursor-pointer hover:underline"
-            onClick={() => navigate("/admin-login")}
+            onClick={() => navigate("/user-login")}
           >
             Login
           </span>
@@ -133,4 +133,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default LoginRegister;

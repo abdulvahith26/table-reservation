@@ -10,6 +10,7 @@ import ReviewForm from './Pages/ReviewForm';
 import AdminReview from './Pages/AdminReview';
 import Recommendation from './components/Recommendation'
 import LoginPage from './Pages/LoginPage';
+import LoginRegister from './Pages/LoginRegister';
 import RegisterPage from './Pages/RegisterPage';
 import UserLogin from './Pages/UserLogin';
 import AdminLogin from './Pages/AdminLogin'
@@ -35,6 +36,7 @@ function App() {
 
 {/* User */}
           <Route path="/user-login" element={<UserLogin />} />
+          <Route path="/user-register" element={<LoginRegister />} />
           <Route path ="/user-dashboard" element={<UserDashboardPage />} />
           <Route path="/reservations" element={<UserReservationPage />} />
 
